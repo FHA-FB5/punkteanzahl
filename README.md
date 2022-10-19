@@ -1,11 +1,18 @@
-# Vue 3 + Typescript + Vite
+# Punkteanzahl
+Application to provide the points overview as web gui for the first semester introduction seminar.
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Usage
+Open the main page on `/` to view the current points. If no values are set or if the page is reloaded the values `Team A` with 0 points and `Team B` with 0 points will be shown.  
+Open the admin page on `/admin` and enter the team names and points. Click the update button. The points will be updated by socket connection on the main page.
 
-## Recommended IDE Setup
+## Dependencies
+This project is based on python3 with flask and socket.io.
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## Run
+1. Install python3 and pip3
+2. Install dependencies with `pip install -r requirements.txt`
+3. Start the server with `python3 main.py`
+4. Open `127.0.0.1:5000` in your browser as user view
+5. Open `127.0.0.1:5000/admin` in your browser as admin view
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+You could also use the docker image provided in this repository.

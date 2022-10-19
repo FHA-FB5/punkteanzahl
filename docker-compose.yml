@@ -1,0 +1,8 @@
+version: '3'
+services:
+  punkteanzahl:
+    image: ghcr.io/fsr5-fhaachen/punkteanzahl:latest
+    container_name: punkteanzahl
+    restart: unless-stopped
+    ports:
+      - "5000:5000"

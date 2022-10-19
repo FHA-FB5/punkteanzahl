@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Punktestand</title>
+    <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+        
+        /*socket.on('connect', function() {
+            socket.emit('client_connected', {data: 'Hello world!'});
+        });*/
+
+        $(document).ready(function () {
+            socket.on('update', function (data) {
+                $('#name_a').html(data.name_a);
+                $('#points_a').html(data.points_a);
+                $('#name_b').html(data.name_b);
+                $('#points_b').html(data.points_b);
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Punkestand</h1>
+    <h2 id="name_a">Team A</h2>
+    <h3 id="points_a">0</h3>
+    <h2 id="name_b">Team B</h2>
+    <h3 id="points_b">0</h3>
+  </body>
+</html>
