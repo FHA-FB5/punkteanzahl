@@ -20,12 +20,61 @@
             });
         });
     </script>
+    <style>
+      body {
+        background-color:  #262626;
+      }
+
+      .headline {
+        font-family: "Century Gothic", sans-serif; 
+        font-size: 100px; 
+        color:white;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+
+      .teamname {
+        font-family: "Century Gothic", sans-serif;
+        font-size: 90px;
+        color:white;
+      }
+
+      .bodycontainer {
+        text-align: center;
+      }
+
+      .points {
+        font-family: "Century Gothic", sans-serif;
+        font-size: 90px;
+        color: white;
+        text-align: center;
+      }
+
+      .team_a {
+        border-right-style: solid;
+        border-color: #999999;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Punkestand</h1>
-    <h2 id="name_a">Team A</h2>
-    <h3 id="points_a">0</h3>
-    <h2 id="name_b">Team B</h2>
-    <h3 id="points_b">0</h3>
+  <body class="bg">
+    <div class="bodycontainer">
+      <div>
+          <h1 class="headline">PUNKTESTAND</h1>
+      </div>
+      <div class="container">
+        <div class="team_a">
+          <h1 class="teamname" id="name_a">Team A</h1>
+          <p class="points" id="points_a">0</p>
+        </div>
+        <div class="team_b" >
+          <h1 class="teamname" id="name_b">Team B</h1>
+          <p class="points" id="points_b">0</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
