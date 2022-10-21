@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Punktestand Admin</title>
+    <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+        
+        /*socket.on('connect', function() {
+            socket.emit('client_connected', {data: 'Hello world!'});
+        });*/
+
+        $(function() {
+            $('#update').click(function() {
+                socket.emit('update', {name_a: $('#name_a').val(), points_a: $('#points_a').val(), name_b: $('#name_b').val(), points_b: $('#points_b').val()});
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Punkestand Administration</h1>
+    <p>
+        <label for="name_a">Team A Name</label>
+        <input type="text" id="name_a" value="Team A">
+    </p>
+    <p>
+        <label for="points_a">Team A Punkte</label>
+        <input type="text" id="points_a" value="0">
+    </p>
+    <p>
+        <label for="name_b">Team B Name</label>
+        <input type="text" id="name_b" value="Team B">
+    </p>
+    <p>
+        <label for="points_b">Team B Punkte</label>
+        <input type="text" id="points_b" value="0">
+    </p>
+    <p>
+        <button id="update">Update</button>
+    </p>
+  </body>
+</html>
