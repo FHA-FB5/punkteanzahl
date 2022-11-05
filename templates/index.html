@@ -8,8 +8,8 @@
 			integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
 			crossorigin="anonymous"
 		></script>
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 		<link rel="stylesheet" href="../static/css/stylesheet.css" />
-		<script src="../static/js/updateContent.js"></script>
 	</head>
 	<body class="bg">
 		<div class="bodycontainer">
@@ -18,14 +18,17 @@
 			</div>
 			<div class="container">
 				<div class="team_a">
+					<canvas class="canvas_a"></canvas>
 					<h1 class="teamname" id="name_a">Team A</h1>
 					<p class="points" id="points_a">0</p>
 				</div>
 				<div class="team_b">
+					<canvas class="canvas_b"></canvas>
 					<h1 class="teamname" id="name_b">Team B</h1>
 					<p class="points" id="points_b">0</p>
 				</div>
 			</div>
 		</div>
 	</body>
+	<script src="../static/js/updateContent.js"></script>
 </html>
