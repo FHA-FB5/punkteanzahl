@@ -26,9 +26,10 @@ body {
 
 .points {
     font-family: "Century Gothic", sans-serif;
-    font-size: 90px;
+    font-size: 150px;
     color: white;
     text-align: center;
+    font-weight: bold;
 }
 
 .team_a {
@@ -52,6 +53,9 @@ body {
     outline: none;
     border: 2px solid white;
     color: white;
+    width: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .changevalue:hover {
