@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Punktestand Admin</title>
+		<title>Adminpanel</title>
 		<script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
@@ -20,18 +20,18 @@
 			</div>
 			<div class="container">
 				<div class="team_a">
-					<p class="teamname"><input type="text" class="teamname nameinput" id="name_a" value="Team A" /></p>
+					<p class="teamname"><input type="text" class="teamname nameinput" id="name_a" value="" /></p>
 					<div>
 						<button class="changevalue" id="add_a"><i class="fa fa-plus" aria-hidden="true"></i></button>
-						<div class="points" id="points_a">0</div>
+						<div class="points" id="points_a"></div>
 						<button class="changevalue" id="sub_a"><i class="fa fa-minus" aria-hidden="true"></i></button>
 					</div>
 				</div>
 				<div class="team_b">
-					<p class="teamname"><input type="text" class="teamname nameinput" id="name_b" value="Team B" /></p>
+					<p class="teamname"><input type="text" class="teamname nameinput" id="name_b" value="" /></p>
 					<div>
 						<button class="changevalue" id="add_b"><i class="fa fa-plus" aria-hidden="true"></i></button>
-						<div class="points" id="points_b">0</div>
+						<div class="points" id="points_b"></div>
 						<button class="changevalue" id="sub_b"><i class="fa fa-minus" aria-hidden="true"></i></button>
 					</div>
 				</div>

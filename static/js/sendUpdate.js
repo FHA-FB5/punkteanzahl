@@ -1,6 +1,15 @@
 var socket = io();
 
-$(function () {
+$(document).ready(function () {
+    socket.emit('request');
+    
+    socket.on('request', function (data) {
+        $('#name_a').val(data.name_a);
+        $('#points_a').text(data.points_a);
+        $('#name_b').val(data.name_b);
+        $('#points_b').text(data.points_b);
+    });
+
     $('#add_a').click(() => {
         let num = +$("#points_a").text() + 1;
         $("#points_a").text(num);
