@@ -2,11 +2,11 @@
 Application to display the score overview between two teams as a web gui. \
 Used in the introduction seminar for the freshmen students.
 
-## My additiions
+## My additions
 - Better Frontend for the admin Panel.
 - Special Effects like confetti and sounds.
 - Possibility to enable and disable the special effects.
-- Persistent storage on server side for less data loss on website reload.
+- Persistent storage on server side for fewer data loss on website reload.
 
 ## Usage
 - Open the `/` endpoint to view the current score. 
