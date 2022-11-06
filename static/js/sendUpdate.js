@@ -8,6 +8,9 @@ $(document).ready(function () {
         $('#points_a').text(data.points_a);
         $('#name_b').val(data.name_b);
         $('#points_b').text(data.points_b);
+        $('#play_sound').prop('checked', data.play_sound);
+        $('#play_confetti').prop('checked', data.play_confetti);
+
     });
 
     $('#add_a').click(() => {
@@ -41,8 +44,12 @@ $(document).ready(function () {
     $('#name_b').on('input', () => {
         sendUpdate();
     });
+
+    $(':checkbox').change(() => {
+        sendUpdate();
+    }); 
 });
 
 function sendUpdate() {
-    socket.emit('update', { name_a: $('#name_a').val(), points_a: $('#points_a').text(), name_b: $('#name_b').val(), points_b: $('#points_b').text() });
+    socket.emit('update', { name_a: $('#name_a').val(), points_a: $('#points_a').text(), name_b: $('#name_b').val(), points_b: $('#points_b').text(), play_sound: $('#play_sound').is(":checked"), play_confetti: $('#play_confetti').is(":checked") });
 }

@@ -5,7 +5,7 @@ app = Flask(__name__)
 #app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
-storage = {'name_a': 'Team A', 'points_a': '0', 'name_b': 'Team B', 'points_b': '0'}
+storage = {'name_a': 'Team A', 'points_a': '0', 'name_b': 'Team B', 'points_b': '0', 'play_sound': False, 'play_confetti': False}
 
 @app.route('/')
 def index(**data):

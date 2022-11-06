@@ -30,11 +30,11 @@ $(document).ready(function () {
 
     socket.on('update', function (data) {
         if(data.points_a > +$("#points_a").text()) {
-            confettiTeamA(particleOptions);
+            playEffects(data.play_sound, data.play_confetti, confettiTeamA);
         }
 
         if(data.points_b > +$("#points_b").text()) {
-            confettiTeamB(particleOptions);
+            playEffects(data.play_sound, data.play_confetti, confettiTeamB);
         }
 
         $('#name_a').text(data.name_a);
@@ -43,3 +43,15 @@ $(document).ready(function () {
         $('#points_b').text(data.points_b);
     });
 });
+
+function playEffects(play_sound, play_confetti, confetti) {
+    if(play_sound) {
+        $('#audio').trigger("pause");
+        $('#audio').prop("currentTime", 0);
+        $('#audio').trigger("play");
+    }
+
+    if(play_confetti) {
+        confetti(particleOptions);
+    }
+}

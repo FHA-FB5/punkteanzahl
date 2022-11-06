@@ -25,7 +25,15 @@ body {
 }
 
 .bodycontainer {
+    position: relative;
     text-align: center;
+}
+
+.options {
+    position: absolute;
+    color: white;
+    font-family: "Century Gothic", sans-serif;
+    text-align: left;
 }
 
 .points {
