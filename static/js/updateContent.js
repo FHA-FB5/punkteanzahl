@@ -1,3 +1,5 @@
+let byId = (id) => { return document.getElementById(id) };
+
 let confettiOptions = {
     resize: true,
     useWorker: false,
@@ -17,38 +19,39 @@ let canvasTeamB = document.querySelector('.team_b > canvas');
 let confettiTeamA = confetti.create(canvasTeamA, confettiOptions);
 let confettiTeamB = confetti.create(canvasTeamB, confettiOptions);
 
+window.onload = init;
 
-$(document).ready(function () {
+function init() {
     socket.emit('request');
 
     socket.on('request', function (data) {
-        $('#name_a').text(data.name_a);
-        $('#points_a').text(data.points_a);
-        $('#name_b').text(data.name_b);
-        $('#points_b').text(data.points_b);
+        byId('name_a').innerText = data.name_a;
+        byId('points_a').innerText = data.points_a;
+        byId('name_b').innerText = data.name_b;
+        byId('points_b').innerText = data.points_b;
     });
 
     socket.on('update', function (data) {
-        if(data.points_a > +$("#points_a").text()) {
+        if(data.points_a > +byId("points_a").innerText) {
             playEffects(data.play_sound, data.play_confetti, confettiTeamA);
         }
 
-        if(data.points_b > +$("#points_b").text()) {
+        if(data.points_b > +byId("points_b").innerText) {
             playEffects(data.play_sound, data.play_confetti, confettiTeamB);
         }
 
-        $('#name_a').text(data.name_a);
-        $('#points_a').text(data.points_a);
-        $('#name_b').text(data.name_b);
-        $('#points_b').text(data.points_b);
+        byId('name_a').innerText = data.name_a;
+        byId('points_a').innerText = data.points_a;
+        byId('name_b').innerText = data.name_b;
+        byId('points_b').innerText = data.points_b;
     });
-});
+};
 
 function playEffects(play_sound, play_confetti, confetti) {
     if(play_sound) {
-        $('#audio').trigger("pause");
-        $('#audio').prop("currentTime", 0);
-        $('#audio').trigger("play");
+        byId('audio').pause();
+        byId('audio').currentTime = 0;
+        byId('audio').play();
     }
 
     if(play_confetti) {

@@ -1,55 +1,55 @@
 var socket = io();
+let byId = (id) => { return document.getElementById(id) };
 
-$(document).ready(function () {
+
+window.onload = init;
+
+function init() {
     socket.emit('request');
-    
+
     socket.on('request', function (data) {
-        $('#name_a').val(data.name_a);
-        $('#points_a').text(data.points_a);
-        $('#name_b').val(data.name_b);
-        $('#points_b').text(data.points_b);
-        $('#play_sound').prop('checked', data.play_sound);
-        $('#play_confetti').prop('checked', data.play_confetti);
-
+        byId('name_a').value = data.name_a;
+        byId('points_a').innerText = data.points_a;
+        byId('name_b').value = data.name_b;
+        byId('points_b').innerText = data.points_b;
+        byId('play_sound').checked = data.play_sound;
+        byId('play_confetti').checked = data.play_confetti;
     });
 
-    $('#add_a').click(() => {
-        let num = +$("#points_a").text() + 1;
-        $("#points_a").text(num);
+    byId('add_a').onclick = () => {
+        byId("points_a").innerText = +byId("points_a").innerText + 1;
         sendUpdate();
-    });
+    };
 
-    $('#sub_a').click(() => {
-        let num = +$("#points_a").text() - 1;
-        $("#points_a").text(num); 
+    byId('sub_a').onclick = () => {
+        byId("points_a").innerText = +byId("points_a").innerText - 1;
         sendUpdate();   
-    });
+    };
 
-    $('#add_b').click(() => {
-        let num = +$("#points_b").text() + 1;
-        $("#points_b").text(num);
+    byId('add_b').onclick = () => {
+        byId("points_b").innerText = +byId("points_b").innerText + 1;
         sendUpdate();
-    });
+    };
 
-    $('#sub_b').click(() => {
-        let num = +$("#points_b").text() - 1;
-        $("#points_b").text(num);    
+    byId('sub_b').onclick = () => {
+        byId("points_b").innerText = +byId("points_b").innerText - 1;   
         sendUpdate();
-    });
+    };
 
-    $('#name_a').on('input', () => {
-        sendUpdate();
-    });
+    byId('name_a').oninput = () => { sendUpdate() };
+    byId('name_b').oninput = () => { sendUpdate() };
+    byId('play_sound').onclick = () => { sendUpdate() };
+    byId('play_confetti').onclick = () => { sendUpdate() };
+}
 
-    $('#name_b').on('input', () => {
-        sendUpdate();
-    });
-
-    $(':checkbox').change(() => {
-        sendUpdate();
-    }); 
-});
 
 function sendUpdate() {
-    socket.emit('update', { name_a: $('#name_a').val(), points_a: $('#points_a').text(), name_b: $('#name_b').val(), points_b: $('#points_b').text(), play_sound: $('#play_sound').is(":checked"), play_confetti: $('#play_confetti').is(":checked") });
+    let name_a = byId('name_a').value;
+    let points_a = byId('points_a').innerText;
+    let name_b = byId('name_b').value;
+    let points_b = byId('points_b').innerText;
+    let play_sound = byId('play_sound').checked;
+    let play_confetti = byId('play_confetti').checked;
+
+    socket.emit('update', { name_a: name_a, points_a: points_a, name_b: name_b, points_b: points_b, play_sound: play_sound, play_confetti: play_confetti });
 }
