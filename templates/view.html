@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Punktestand</title>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+			integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+		<link rel="stylesheet" href="../static/css/stylesheet.css" />
+	</head>
+	<body class="bg">
+		<audio src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3" id="audio"></audio>
+		<div class="bodycontainer">
+			<div>
+				<h1 class="headline">PUNKTESTAND</h1>
+			</div>
+			<div class="container">
+				<div class="team_a">
+					<canvas class="canvas_a"></canvas>
+					<h1 class="teamname" id="name_a"></h1>
+					<p class="points" id="points_a"></p>
+				</div>
+				<div class="team_b">
+					<canvas class="canvas_b"></canvas>
+					<h1 class="teamname" id="name_b"></h1>
+					<p class="points" id="points_b"></p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../static/js/updateContent.js"></script>
+</html>
